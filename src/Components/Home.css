@@ -1,0 +1,184 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #13131d;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px; /* Reduced gap for closer spacing */
+  padding: 20px;
+}
+
+.card {
+  width: 330px; /* Fixed width */
+  height: 400px; /* Fixed height */
+  border-radius: 10px;
+  background: #1c1c2e;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space between image and content */
+  transition: transform 0.3s;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Lift card on hover */
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: auto;
+  bottom: 0;
+  border-radius: 15px;
+  background-image: linear-gradient(100deg, #0398ed, #13131d, #0398ed);
+  background-repeat: repeat-x;
+  transition: all 0.5s;
+  z-index: -2;
+}
+
+.card:hover:before {
+  transform: rotate(2deg) translateX(-7px) translateY(11px);
+}
+
+.card img {
+  width: 100%;
+  height: 70%; /* Adjust height to fit within the card */
+  object-fit: cover; /* Cover the entire card area while maintaining aspect ratio */
+  border-bottom: 1px solid #333; /* Add border for separation */
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center; /* Center-align text within the card */
+  color: #fff; /* White text for contrast */
+}
+
+.card h2 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.card p {
+  margin: 0;
+  color: #aaa; /* Lighter color for secondary text */
+}
+
+.card:after {
+  top: 0;
+  background: #242435;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.card:after,
+.card:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.search-input {
+  background: transparent;
+  border-color: #ffffff14;
+  font-size: 15px;
+  border-radius: 10px;
+  color: #acacac;
+  outline: none;
+  box-shadow: none;
+  transition: 0.4s;
+  padding: 0 35px 0 15px;
+  text-align: center;
+}
+input {
+  height: 40px;
+  width: 300px;
+  padding: 0 15px;
+}
+input {
+  font-size: 100%;
+  margin: 0;
+  max-width: 100%;
+  vertical-align: baseline;
+}
+.search-icon {
+  position: absolute;
+  right: 41%;
+
+  transform: translateY(-50%);
+  font-size: 20px;
+  top: 50%;
+}
+::placeholder {
+  text-align: start;
+}
+.search-input:focus {
+  border-color: #0398ed; /* Change border color on hover */
+}
+span {
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .card img {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  .search-icon {
+    position: absolute;
+    right: 17%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    top: 50%;
+  }
+  .card {
+    width: 370px;
+  }
+}
+@media (max-width: 400px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  .search-icon {
+    position: absolute;
+    right: 12%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    top: 50%;
+  }
+  .card {
+    width: 330px;
+  }
+}
